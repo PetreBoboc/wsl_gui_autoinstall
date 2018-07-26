@@ -9,7 +9,7 @@ REM One big long command to be absolutely sure we're not prompted for a password
 echo apt-get update >> "%TMP%\script.sh"
 echo apt-get -y install pulseaudio >> "%TMP%\script.sh"
 echo wget https://github.com/PetreBoboc/wsl_gui_autoinstall/raw/master/libpulse0.deb >> "%TMP%\script.sh"
-echo dpkg -i install libpulse0.deb >> "%TMP%\script.sh"
+echo dpkg -i libpulse0.deb >> "%TMP%\script.sh"
 echo apt-mark hold libpulse0 >> "%TMP%\script.sh"
 echo sed -i 's/; default-server =/default-server = 127.0.0.1/' /etc/pulse/client.conf >> "%TMP%\script.sh"
 echo sed -i "s$<listen>.*</listen>$<listen>tcp:host=localhost,port=0</listen>$" /etc/dbus-1/session.conf >> "%TMP%\script.sh"
