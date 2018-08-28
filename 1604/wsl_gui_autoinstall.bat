@@ -17,7 +17,7 @@ C:\Windows\System32\bash.exe -c "chmod +x '%LINUXTMP%/script.sh' ; tr -d $'\r' <
 
 ECHO --- Downloading required third-party packages
 ECHO --- VcXsrv...
-C:\Windows\System32\bash.exe -xc "wget -cO '%LINUXTMP%/vcxsrv.exe' 'http://downloads.sourceforge.net/project/vcxsrv/vcxsrv/1.18.3.0/vcxsrv-64.1.18.3.0.installer.exe'"
+C:\Windows\System32\bash.exe -xc "wget -cO '%LINUXTMP%/vcxsrv.exe' 'https://github.com/PetreBoboc/wsl_gui_autoinstall/raw/master/1604/vcxsrv-64.1.20.1.1.installer.exe'"
 
 ECHO --- PulseAudio...
 C:\Windows\System32\bash.exe -xc "wget -cO '%LINUXTMP%/pulseaudio.zip' 'http://bosmans.ch/pulseaudio/pulseaudio-1.1.zip'"
