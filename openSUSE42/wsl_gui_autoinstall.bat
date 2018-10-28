@@ -3,17 +3,17 @@
 SET "LINUXTMP=$(echo '%TMP:\=\\%' | sed -e 's|\\|/|g' -e 's|^\([A-Za-z]\)\:/\(.*\)|/mnt/\L\1\E/\2|')"
 echo LINUXTMP = "%LINUXTMP%"
 
-ECHO --- Running Linux installation.  You will be prompted for your Ubuntu user's password:
+ECHO --- Running Linux installation.  You will be prompted for your SUSE user's password:
 REM One big long command to be absolutely sure we're not prompted for a password repeatedly
 
-echo apt-get update >> "%TMP%\script.sh"
+echo zypper update >> "%TMP%\script.sh"
+echo zypper install xorg-x11-server >> "%TMP%\script.sh"
 echo sed -i "s$<listen>.*</listen>$<listen>tcp:host=localhost,port=0</listen>$" /etc/dbus-1/session.conf >> "%TMP%\script.sh"
 C:\Windows\System32\bash.exe -c "chmod +x '%LINUXTMP%/script.sh' ; tr -d $'\r' < '%LINUXTMP%/script.sh' | tee '%LINUXTMP%/script_clean.sh'; sudo '%LINUXTMP%/script_clean.sh'"
 
 ECHO --- Downloading required third-party packages
 ECHO --- VcXsrv...
-C:\Windows\System32\bash.exe -xc "wget -cO '%LINUXTMP%/vcxsrv.exe' 'http://downloads.sourceforge.net/project/vcxsrv/vcxsrv/1.18.3.0/vcxsrv-64.1.18.3.0.installer.exe'"
-
+C:\Windows\System32\bash.exe -xc "wget -cO '%LINUXTMP%/vcxsrv.exe' 'https://github.com/PetreBoboc/wsl_gui_autoinstall/raw/master/1604/vcxsrv-64.1.20.1.1.installer.exe'"
 ECHO --- Installing packages
 
 ECHO --- Adding link for X Server to Startup Items
